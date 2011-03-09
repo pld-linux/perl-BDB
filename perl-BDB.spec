@@ -5,35 +5,48 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pnam	BDB
 Summary:	BDB - Asynchronous Berkeley DB access
+Summary(pl.UTF-8):	BDB - asynchroniczny dostęp do Berkeley DB
 Name:		perl-BDB
 Version:	1.88
 Release:	1
-License:	GPL or Artistic
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
 # Source0-md5:	64ef414a55a49edf78302a80b3871b94
+Patch0:		%{name}-db5.patch
 URL:		http://search.cpan.org/dist/BDB/
-BuildRequires:	db-devel
+BuildRequires:	db-devel >= 4.3
+BuildRequires:	perl-devel >= 1:5.8.8
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-common-sense
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 BDB - Asynchronous Berkeley DB access.
 
+%description -l pl.UTF-8
+BDB - asynchroniczny dostęp do Berkeley DB.
+
 %prep
 %setup -q -n %{pnam}-%{version}
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -44,6 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorarch}/BDB.pm
 %dir %{perl_vendorarch}/auto/BDB
-%attr(755,root,root) %{perl_vendorarch}/auto/BDB/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/BDB/*.so
-%{_mandir}/man3/*
+%{perl_vendorarch}/auto/BDB/BDB.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/BDB/BDB.so
+%{_mandir}/man3/BDB.3pm*
