@@ -55,6 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorarch}/BDB.pm
 %dir %{perl_vendorarch}/auto/BDB
-%{perl_vendorarch}/auto/BDB/BDB.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/BDB/BDB.so
 %{_mandir}/man3/BDB.3pm*
