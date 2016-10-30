@@ -8,7 +8,7 @@ Summary:	BDB - Asynchronous Berkeley DB access
 Summary(pl.UTF-8):	BDB - asynchroniczny dostęp do Berkeley DB
 Name:		perl-BDB
 Version:	1.90
-Release:	8
+Release:	9
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
