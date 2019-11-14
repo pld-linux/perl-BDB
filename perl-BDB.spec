@@ -7,13 +7,13 @@
 Summary:	BDB - Asynchronous Berkeley DB access
 Summary(pl.UTF-8):	BDB - asynchroniczny dostęp do Berkeley DB
 Name:		perl-BDB
-Version:	1.91
-Release:	4
+Version:	1.92
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
-# Source0-md5:	b337bb3a52d911b9024b0587b2589dcb
+# Source0-md5:	2be2ce3cf9457d7775a32f3006abc2c0
 URL:		http://search.cpan.org/dist/BDB/
 BuildRequires:	db-devel >= 4.3
 BuildRequires:	perl-devel >= 1:5.8.8
