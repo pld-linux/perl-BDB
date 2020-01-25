@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pnam	BDB
 Summary:	BDB - Asynchronous Berkeley DB access
 Summary(pl.UTF-8):	BDB - asynchroniczny dostęp do Berkeley DB
