@@ -13,10 +13,11 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/M/ML/MLEHMANN/%{pnam}-%{version}.tar.gz
 # Source0-md5:	2be2ce3cf9457d7775a32f3006abc2c0
-URL:		http://search.cpan.org/dist/BDB/
+URL:		https://metacpan.org/dist/BDB
 BuildRequires:	db-devel >= 4.3
 BuildRequires:	perl-devel >= 1:5.8.8
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-common-sense
 %endif
